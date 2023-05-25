@@ -1,4 +1,10 @@
+import java.util.Random;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
 public class Main {
+
     public static void main(String[] args) {
         int[] number = {5, 3, 8, 20, 4};
         System.out.println(number[0]);
@@ -126,5 +132,85 @@ public class Main {
             }
         }
         System.out.println("Žodžių, atitinkančių sąlygas, skaičius: " + count3);
+        System.out.println("___________________________________________________________");
+                Random random = new Random();
+                int countGreaterThan150 = 0;
+                for (int i = 0; i < 300; i++) {
+                    int randomNumber = random.nextInt(301);
+                    System.out.print((randomNumber > 275) ? "[" + randomNumber + "] " : randomNumber + " ");
+                    if (randomNumber > 150) {
+                        countGreaterThan150++;
+                    }
+                }
+                System.out.println("\nCount of numbers greater than 150: " + countGreaterThan150);
+        System.out.println("___________________________________________________________");
+        StringBuilder result = new StringBuilder();
+        for (int i = 1; i <= 3000; i++) {
+            if (i % 77 == 0) {
+                result.append(i).append(", ");
+            }
+        }
+        // Pašaliname paskutinį kablelį ir tarpą
+        if (result.length() > 0) {
+            result.delete(result.length() - 2, result.length());
+        }
+        System.out.println(result.toString());
+        System.out.println("___________________________________________________________");
+        // Generuojame string'ą su 50 unikalių atsitiktinių skaičių
+        String numbersString = generateUniqueNumbersString(50, 1, 200);
+        System.out.println("Visi skaičiai: " + numbersString);
+        // Atrenkame ir surikiuojame pirminius skaičius iš pirmo string'o
+        String primeNumbersString = getSortedPrimeNumbers(numbersString);
+        System.out.println("Pirminiai skaičiai: " + primeNumbersString);
     }
-}
+    private static String generateUniqueNumbersString(int count, int min, int max) {
+        if (count > (max - min + 1)) {
+            throw new IllegalArgumentException("Reikiamas unikalių skaičių kiekis viršija intervalo dydį.");
+        }
+        StringBuilder numbers = new StringBuilder();
+        Set<Integer> uniqueNumbers = new HashSet<>();
+        Random random = new Random();
+        while (uniqueNumbers.size() < count) {
+            int randomNumber = random.nextInt(max - min + 1) + min;
+            uniqueNumbers.add(randomNumber);
+        }
+        for (int number : uniqueNumbers) {
+            numbers.append(number).append(" ");
+        }
+        return numbers.toString().trim();
+    }
+    private static String getSortedPrimeNumbers(String numbersString) {
+        String[] numbersArray = numbersString.split(" ");
+        int[] numbers = new int[numbersArray.length];
+        int primeCount = 0;
+        for (int i = 0; i < numbersArray.length; i++) {
+            numbers[i] = Integer.parseInt(numbersArray[i]);
+        }
+        StringBuilder primeNumbers = new StringBuilder();
+
+        for (int number : numbers) {
+            if (isPrime(number)) {
+                primeNumbers.append(number).append(" ");
+                primeCount++;
+            }
+        }
+        // Rikiuojame pirminius skaičius
+        Arrays.sort(numbers, 0, primeCount);
+        StringBuilder sortedPrimeNumbers = new StringBuilder();
+        for (int i = 0; i < primeCount; i++) {
+            sortedPrimeNumbers.append(numbers[i]).append(" ");
+        }
+        return sortedPrimeNumbers.toString().trim();
+    }
+    private static boolean isPrime(int number) {
+        if (number <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+    }
