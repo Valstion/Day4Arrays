@@ -49,7 +49,6 @@ public class Main {
         int count = 0;
         double sum = 0;
         while (true) {
-
             double rndNum = Math.random();
             count++;
             sum += rndNum;
@@ -57,7 +56,6 @@ public class Main {
             if (rndNum >= 0.9) {
                 break;
             }
-
         }
         System.out.println(count);
         System.out.println(sum);
@@ -70,8 +68,8 @@ public class Main {
         for (int i = 0; i < 10; i++) {
             System.out.println(i);
         }
-        System.out.println("___________________________________________________________");
-        String[] plants = {"Jonas", "Petras", "Adele", "A", "K", "Jonas", "Petras", "Adele", "A", "K"};
+        System.out.println("__________________tikimasi ciklo panaudojimo___________________________");
+        String[] plants = {"Jonas", "Petras", "Adele", "A", "K788978978", "Jonas", "Petras", "Adele", "A", "K"};
         System.out.println(plants[0]);
         System.out.println(plants[1]);
         System.out.println(plants[2]);
@@ -82,11 +80,8 @@ public class Main {
         System.out.println(plants[7]);
         System.out.println(plants[8]);
         System.out.println(plants[9]);
-        System.out.println("___________________________________________________________");
-        for (int i = 9; i < plants.length; i--) {
-            if (i == 0) {
-                break;
-            }
+        System.out.println("_________________5__________________________________________");
+        for (int i = plants.length - 1; i >= 0; i--) {
             System.out.println(plants[i]);
         }
         System.out.println("___________________________________________________________");
@@ -95,10 +90,9 @@ public class Main {
                 System.out.println(i + "");
             }
         }
-        System.out.println("___________________________________________________________");
+        System.out.println("____________________7_______________________________________");
         for (int i = 10; i < 51; i++) {
-            if (i % 10 == 0) System.out.println();
-            else if (i % 2 == 0) {
+            if (i % 2 == 0 && i % 10 != 0) {
                 System.out.println(i + "");
             }
         }
@@ -111,10 +105,26 @@ public class Main {
         }
         System.out.println(a);
         System.out.println("___________________________________________________________");
-
-
-
-        System.out.println( plants.length < 5 );
-
+        int shorterThan5 = 0;
+        int longerThan7 = 0;
+        for (String word : plants) {
+            if (word.length() < 5) {
+                shorterThan5++;
+            }
+            if (word.length() > 7) {
+                longerThan7++;
+            }
+        }
+        System.out.println("Žodžių trumpesnių nei 5 simboliai: " + shorterThan5);
+        System.out.println("Žodžių ilgesnių nei 7 simboliai: " + longerThan7);
+        System.out.println("___________________________________________________________");
+        int count3 = 0;
+        for (String plant : plants) {
+            int length = plant.length();
+            if (length > 5 && length < 10) {
+                count3++;
+            }
+        }
+        System.out.println("Žodžių, atitinkančių sąlygas, skaičius: " + count3);
     }
 }
