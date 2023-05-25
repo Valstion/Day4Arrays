@@ -62,5 +62,59 @@ public class Main {
         System.out.println(count);
         System.out.println(sum);
         System.out.println(sum / count);
+        System.out.println("___________________________________________________________");
+        for (int i = 0; i < 10; i++) {
+            System.out.println("Labas");
+        }
+        System.out.println("___________________________________________________________");
+        for (int i = 0; i < 10; i++) {
+            System.out.println(i);
+        }
+        System.out.println("___________________________________________________________");
+        String[] plants = {"Jonas", "Petras", "Adele", "A", "K", "Jonas", "Petras", "Adele", "A", "K"};
+        System.out.println(plants[0]);
+        System.out.println(plants[1]);
+        System.out.println(plants[2]);
+        System.out.println(plants[3]);
+        System.out.println(plants[4]);
+        System.out.println(plants[5]);
+        System.out.println(plants[6]);
+        System.out.println(plants[7]);
+        System.out.println(plants[8]);
+        System.out.println(plants[9]);
+        System.out.println("___________________________________________________________");
+        for (int i = 9; i < plants.length; i--) {
+            if (i == 0) {
+                break;
+            }
+            System.out.println(plants[i]);
+        }
+        System.out.println("___________________________________________________________");
+        for (int i = 10; i < 51; i++) {
+            if (i % 2 == 0) {
+                System.out.println(i + "");
+            }
+        }
+        System.out.println("___________________________________________________________");
+        for (int i = 10; i < 51; i++) {
+            if (i % 10 == 0) System.out.println();
+            else if (i % 2 == 0) {
+                System.out.println(i + "");
+            }
+        }
+        System.out.println("___________________________________________________________");
+        int a = 0;
+        for (int i = 0; i < 20; i++) {
+            if (i % 2 == 0) {
+                a++;
+            }
+        }
+        System.out.println(a);
+        System.out.println("___________________________________________________________");
+
+
+
+        System.out.println( plants.length < 5 );
+
     }
 }
